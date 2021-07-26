@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.40180d60.chunk.css",
-    "main.js": "/static/js/main.a5199be2.chunk.js",
-    "main.js.map": "/static/js/main.a5199be2.chunk.js.map",
+    "main.js": "/static/js/main.7d0ccfc5.chunk.js",
+    "main.js.map": "/static/js/main.7d0ccfc5.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d4d9d3a8.js",
     "runtime-main.js.map": "/static/js/runtime-main.d4d9d3a8.js.map",
     "static/js/2.2883cb96.chunk.js": "/static/js/2.2883cb96.chunk.js",
@@ -10,7 +10,6 @@
     "index.html": "/index.html",
     "static/css/main.40180d60.chunk.css.map": "/static/css/main.40180d60.chunk.css.map",
     "static/js/2.2883cb96.chunk.js.LICENSE.txt": "/static/js/2.2883cb96.chunk.js.LICENSE.txt",
-    "static/media/CV - Mikkel Agerlin.7dcbb851.pdf": "/static/media/CV - Mikkel Agerlin.7dcbb851.pdf",
     "static/media/DownloadCV.ede07c64.svg": "/static/media/DownloadCV.ede07c64.svg",
     "static/media/App.scss": "/static/media/storm_trooper.eac6103c.jpg",
     "static/media/MLogo.af4e1d37.svg": "/static/media/MLogo.af4e1d37.svg",
@@ -22,6 +21,7 @@
     "static/media/code.972ea63c.svg": "/static/media/code.972ea63c.svg",
     "static/media/computer.066123a8.svg": "/static/media/computer.066123a8.svg",
     "static/media/customer-service.ae0f7c7b.svg": "/static/media/customer-service.ae0f7c7b.svg",
+    "static/media/cv remake.c0ae42a6.pdf": "/static/media/cv remake.c0ae42a6.pdf",
     "static/media/data.854bd1d6.svg": "/static/media/data.854bd1d6.svg",
     "static/media/database.ab00ab7e.svg": "/static/media/database.ab00ab7e.svg",
     "static/media/diploma.6aadf697.svg": "/static/media/diploma.6aadf697.svg",
@@ -43,6 +43,6 @@
     "static/js/runtime-main.d4d9d3a8.js",
     "static/js/2.2883cb96.chunk.js",
     "static/css/main.40180d60.chunk.css",
-    "static/js/main.a5199be2.chunk.js"
+    "static/js/main.7d0ccfc5.chunk.js"
   ]
 }
