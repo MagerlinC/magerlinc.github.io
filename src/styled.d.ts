@@ -9,14 +9,25 @@ declare module "styled-components" {
     colors: {
       primary: string;
       secondary: string;
+      gradient: string;
+      gradientAccent: string;
       textPrimary: string;
       textSecondary: string;
       textTertiary: string;
+    };
+    borderRadius: {
+      small: string;
+      medium: string;
+      large: string;
+    };
+    boxshadows: {
+      medium: string;
     };
     spacing: {
       small: string;
       medium: string;
       large: string;
+      xlarge: string;
     };
     typography: {
       fontFamilyMono: string;

@@ -13,7 +13,6 @@ const HeroSwoopWrapper = styled.div<HeroSwoopStyleProps>`
         bottom: 0px;
         width: 100%;
         height: 90px;
-        z-index: 1;
         svg {
             fill: ${theme.colors.secondary};
             position: absolute;
@@ -28,7 +27,7 @@ const HeroSwoopWrapper = styled.div<HeroSwoopStyleProps>`
 `;
 
 type HeroSwoopProps = {};
-const HeroSwoop: React.FC<HeroSwoopProps> = ({}) => {
+const HeroSwoop: React.FC<HeroSwoopProps> = () => {
   return (
     <HeroSwoopWrapper>
       <svg

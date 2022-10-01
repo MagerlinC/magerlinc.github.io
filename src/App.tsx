@@ -1,8 +1,9 @@
 import styled, { ThemeProvider } from "styled-components";
-import TextComponent, { TextVariant } from "./components/Text";
 import { theme } from "./theme";
 import "./normalize.css";
-import LandingPage from "./pages/LandingPage";
+import "./scroll.css";
+import "./animations.css";
+import LandingPage from "./pages/landing-page/LandingPage";
 
 const PortfolioApplication = styled.div`
   ${({ theme }) => `
@@ -14,6 +15,7 @@ const PortfolioApplication = styled.div`
     min-height: 100vh;
     height: 100vh;
     overflow-x: hidden;
+    overflow-y: scroll;
     color: ${theme.colors.textPrimary};
     font-family: ${theme.typography.fontFamilyMono};
   `}

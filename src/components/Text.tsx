@@ -23,11 +23,19 @@ const TextWrapper = styled.p``;
 type TextProps = {
   variant: TextVariant;
   children: ReactNode;
+  className?: string;
 };
-const TextComponent: React.FC<TextProps> = ({ variant, children }) => {
+const TextComponent: React.FC<TextProps> = ({
+  variant,
+  children,
+  className,
+}) => {
   const theme = useTheme();
   return (
-    <TextWrapper style={getStyleForVariant(variant, theme)}>
+    <TextWrapper
+      className={className}
+      style={getStyleForVariant(variant, theme)}
+    >
       {children}
     </TextWrapper>
   );
