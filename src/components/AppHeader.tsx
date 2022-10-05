@@ -3,6 +3,7 @@ import styled from "styled-components";
 import EmailIcon from "../assets/email-icon.svg";
 import LinkedInIcon from "../assets/linkedin-icon.svg";
 import GithubIcon from "../assets/github-icon.svg";
+import CVIcon from "../assets/cv-icon.svg";
 
 type NavigationStyleProps = {};
 const NavigationWrapper = styled.div<NavigationStyleProps>`
@@ -19,7 +20,7 @@ const NavigationWrapper = styled.div<NavigationStyleProps>`
 `;
 
 const SocialIcon = styled.img`
-  width: 42px;
+  width: 4em;
   &:hover {
     opacity: 0.75;
     transition: opacity 0.2s ease-in;
@@ -29,11 +30,17 @@ const SocialIcon = styled.img`
 type NavItem = {
   icon: ReactNode;
   href: string;
+  download?: boolean;
 };
 
 type AppHeaderProps = {};
 const AppHeader: React.FC<AppHeaderProps> = () => {
   const navItems: NavItem[] = [
+    {
+      icon: <SocialIcon alt="Download CV" src={CVIcon} />,
+      href: "cv.pdf",
+      download: true,
+    },
     {
       icon: <SocialIcon alt="email" src={EmailIcon} />,
       href: "mailto:mikkel_ac@hotmail.com",
@@ -51,7 +58,7 @@ const AppHeader: React.FC<AppHeaderProps> = () => {
   return (
     <NavigationWrapper>
       {navItems.map((navItem) => (
-        <a key={navItem.href} href={navItem.href}>
+        <a download={!!navItem.download} key={navItem.href} href={navItem.href}>
           {navItem.icon}
         </a>
       ))}

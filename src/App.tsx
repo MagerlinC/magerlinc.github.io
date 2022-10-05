@@ -1,5 +1,5 @@
 import styled, { ThemeProvider } from "styled-components";
-import { theme } from "./theme";
+import "./responsive.scss";
 import "./normalize.css";
 import "./scroll.css";
 import "./animations.css";

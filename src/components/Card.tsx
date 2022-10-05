@@ -1,19 +1,24 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 import TextComponent, { TextVariant } from "./Text";
 type CardStyleProps = {};
 export const CardWrapper = styled.div<CardStyleProps>`
   ${({ theme }) => `
-        max-width: 40vw;
         position: relative;
         display: flex;
+        max-width: 70vw;
         gap: ${theme.spacing.large};
-        flex-direction: row;
+        flex-direction: column;
         border-radius: ${theme.borderRadius.large};
         padding: ${theme.spacing.large};
         color: ${theme.colors.textSecondary};
         background: ${theme.colors.neutral};
         box-shadow: ${theme.boxshadows.medium};
+        .card-contents-wrapper {
+          display: flex;
+          flex-direction: row;
+          gap; ${theme.spacing.large};
+        }
     `}
 `;
 
@@ -24,6 +29,7 @@ const Section = styled.div`
         flex-direction: column;
         gap: ${theme.spacing.medium};
         justify-content: space-between;
+        line-height: 1.3;
         .banner-title {
           position: absolute;
           top: 4px;
@@ -33,11 +39,19 @@ const Section = styled.div`
     `}
 `;
 
+const LabelList = styled.div`
+  ${({ theme }) => `
+  display: flex;
+  flex-direction: row;
+  gap: ${theme.spacing.medium};
+`}
+`;
+
 const CardImage = styled.img`
   ${({ theme }) => `
         border-radius: ${theme.borderRadius.medium};
-        width: 500px;
-
+        width: 36vw;
+        margin: 2vw;
     `}
 `;
 
@@ -47,8 +61,9 @@ const Label = styled.div`
       background-color: ${theme.colors.secondary};
       color: ${theme.colors.textTertiary};
       border-radius: ${theme.borderRadius.medium};
-      max-width: 125px;
+      max-width: 12em;
       font-weight: bold;
+      text-align: center;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -63,49 +78,56 @@ type CardProps = {
   title: string;
   description: string;
   orientation: Orientation;
-  bannerTitle?: string;
+  labels?: string[];
   imageSource: string;
+  link?: ReactNode;
 };
 const Card: React.FC<CardProps> = ({
   title,
   description,
   orientation,
-  bannerTitle,
-  imageSource: image,
+  labels,
+  imageSource,
+  link,
 }) => {
   const sectionOne = (
     <Section>
-      <TextComponent variant={TextVariant.HEADER}>{title}</TextComponent>
       <TextComponent variant={TextVariant.BODY}>{description}</TextComponent>
-      {bannerTitle && (
-        <Label>
-          <TextComponent variant={TextVariant.SMALL}>
-            {bannerTitle}
-          </TextComponent>
-        </Label>
+      {link && link}
+      {labels && (
+        <LabelList>
+          {labels.map((label) => (
+            <Label>
+              <TextComponent variant={TextVariant.SMALL}>{label}</TextComponent>
+            </Label>
+          ))}
+        </LabelList>
       )}
     </Section>
   );
 
   const sectionTwo = (
     <Section>
-      <CardImage alt="card-image" src={image}></CardImage>
+      <CardImage alt="card-image" src={imageSource}></CardImage>
     </Section>
   );
 
   return (
     <CardWrapper>
-      {orientation === Orientation.LEFT ? (
-        <>
-          {sectionOne}
-          {sectionTwo}
-        </>
-      ) : (
-        <>
-          {sectionTwo}
-          {sectionOne}
-        </>
-      )}
+      <TextComponent variant={TextVariant.HEADER}>{title}</TextComponent>
+      <div className={"card-contents-wrapper"}>
+        {orientation === Orientation.LEFT ? (
+          <>
+            {sectionOne}
+            {sectionTwo}
+          </>
+        ) : (
+          <>
+            {sectionTwo}
+            {sectionOne}
+          </>
+        )}
+      </div>
     </CardWrapper>
   );
 };

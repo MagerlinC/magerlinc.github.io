@@ -49,7 +49,7 @@ export const themeTsukimi: DefaultTheme = {
       },
       small: {
         fontWeight: "regular",
-        fontSize: "0.55em",
+        fontSize: "0.75em",
       },
     },
   },

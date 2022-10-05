@@ -8,6 +8,7 @@ export const LandingPageWrapper = styled.div`
   perspective: 1px;
   overflow-x: hidden;
   overflow-y: auto;
+  scroll-behavior: smooth;
   .parallax__layer {
     position: absolute;
     top: 0;
@@ -24,18 +25,22 @@ export const LandingPageWrapper = styled.div`
 `;
 
 export const HeroSection = styled.div`
+  ${({ theme }) => `
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: ${theme.spacing.medium};
+  `}
 `;
 
 export const HeroImage = styled.img`
-  height: 350px;
+  height: 20vw;
 `;
 
 export const LandingPageHeader = styled.div`
   ${({ theme }) => `
         position: relative;
+        padding:  ${theme.spacing.medium};
         display: flex;
         flex-direction: column;
         gap: ${theme.spacing.large};
@@ -50,6 +55,7 @@ export const LandingPageText = styled.div`
     display: flex;
     flex-direction: column;
     gap: ${theme.spacing.large};
+    text-align: center;
   `}
 `;
 
@@ -61,14 +67,14 @@ export const LandingPageContents = styled.div`
         gap: ${theme.spacing.xlarge};
         flex: 1;
         background: ${theme.colors.secondary};
-        align-items: center;
+        ${CardWrapper} {
+          margin: 1vw 4vw;
+        }
         ${CardWrapper}:nth-child(odd) {
-          margin-left: 30%;
-          margin-right: 0;
+          align-self: flex-end;
         }
          ${CardWrapper}:nth-child(even) {
-          margin-right: 30%;
-          margin-left: 0;
+          align-self: flex-start;
         }
     `}
 `;
@@ -89,10 +95,11 @@ export const ProjectLine = styled.div`
     display: flex;
     flex-direction: column;
     position: absolute;
+    left: 50%;
     flex: 1;
     min-height: 100%;
     width: 24px;
-    transform: translateY(-5vh);
+    transform: translateY(-4em) translateX(-50%);
     background: ${theme.colors.gradientAccent};
     border-radius: ${theme.borderRadius.medium};
   `}
