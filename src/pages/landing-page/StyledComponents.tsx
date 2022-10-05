@@ -26,7 +26,6 @@ export const LandingPageHeader = styled.div`
         gap: ${theme.spacing.large};
         align-items: center;
         justify-content: center;
-        overflow: hidden;
         background: linear-gradient(${theme.colors.primary}, ${theme.colors.primary});
     `}
 `;
@@ -49,11 +48,11 @@ export const LandingPageContents = styled.div`
         background: ${theme.colors.secondary};
         align-items: center;
         ${CardWrapper}:nth-child(odd) {
-          margin-left: 20vw;
+          margin-left: 30%;
           margin-right: 0;
         }
          ${CardWrapper}:nth-child(even) {
-          margin-right: 20vw;
+          margin-right: 30%;
           margin-left: 0;
         }
     `}
@@ -63,6 +62,8 @@ export const ProjectsList = styled.div`
   ${({ theme }) => `
         display: flex;
         flex-direction: column;
+        align-items: center;
+        width: 100%;
         gap: ${theme.spacing.xlarge};
        
     `}

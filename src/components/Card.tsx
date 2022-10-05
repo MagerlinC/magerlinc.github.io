@@ -4,6 +4,7 @@ import TextComponent, { TextVariant } from "./Text";
 type CardStyleProps = {};
 export const CardWrapper = styled.div<CardStyleProps>`
   ${({ theme }) => `
+        max-width: 40vw;
         position: relative;
         display: flex;
         gap: ${theme.spacing.large};
