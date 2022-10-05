@@ -19,10 +19,15 @@ import AppHeader from "../../components/AppHeader";
 type LandingPageProps = {};
 const LandingPage: React.FC<LandingPageProps> = () => {
   const [showProjects, setShowProjects] = useState<boolean>(false);
+  const useParallaxEffect = false;
 
   return (
     <LandingPageWrapper>
-      <LandingPageHeader>
+      <LandingPageHeader
+        className={
+          useParallaxEffect ? "parallax__layer parallax__layer--back" : ""
+        }
+      >
         <AppHeader />
         <HeroSection>
           <LandingPageText>
@@ -41,7 +46,11 @@ const LandingPage: React.FC<LandingPageProps> = () => {
         </HeroSection>
         <HeroSwoop />
       </LandingPageHeader>
-      <LandingPageContents>
+      <LandingPageContents
+        className={
+          useParallaxEffect ? "parallax__layer parallax__layer--base" : ""
+        }
+      >
         {showProjects && <ProjectLine />}
         {showProjects && (
           <ProjectsList className={"fadeInDown"}>
@@ -51,6 +60,38 @@ const LandingPage: React.FC<LandingPageProps> = () => {
               orientation={Orientation.LEFT}
               imageSource={XPPaper}
               bannerTitle={"XP2022 Best Paper Award"}
+            />
+            <Card
+              title={"XP 2022 Paper"}
+              description={"bla bla"}
+              orientation={Orientation.LEFT}
+              imageSource={XPPaper}
+              bannerTitle={"XP2022 Best Paper Award"}
+            />
+            <Card
+              title={"XP 2022 Paper"}
+              description={"bla bla"}
+              orientation={Orientation.LEFT}
+              imageSource={XPPaper}
+              bannerTitle={"XP2022 Best Paper Award"}
+            />
+            <Card
+              title={"XP 2022 Paper"}
+              description={"bla bla"}
+              orientation={Orientation.RIGHT}
+              imageSource={XPPaper}
+            />
+            <Card
+              title={"XP 2022 Paper"}
+              description={"bla bla"}
+              orientation={Orientation.RIGHT}
+              imageSource={XPPaper}
+            />
+            <Card
+              title={"XP 2022 Paper"}
+              description={"bla bla"}
+              orientation={Orientation.RIGHT}
+              imageSource={XPPaper}
             />
             <Card
               title={"XP 2022 Paper"}

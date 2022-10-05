@@ -4,8 +4,23 @@ import { CardWrapper } from "../../components/Card";
 export const LandingPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
   height: 100vh;
+  perspective: 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  .parallax__layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .parallax__layer--base {
+    transform: translateZ(0);
+  }
+  .parallax__layer--back {
+    transform: translateZ(-1px) scale(2);
+  }
 `;
 
 export const HeroSection = styled.div`
