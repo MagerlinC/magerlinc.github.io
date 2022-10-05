@@ -10,16 +10,24 @@ export const CardWrapper = styled.div<CardStyleProps>`
         flex-direction: row;
         border-radius: ${theme.borderRadius.large};
         padding: ${theme.spacing.large};
-        background: ${theme.colors.gradient};
+        background: ${theme.colors.gradientAccentRotated};
         box-shadow: ${theme.boxshadows.medium};
     `}
 `;
 
 const Section = styled.div`
   ${({ theme }) => `
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: ${theme.spacing.medium};
+        justify-content: space-between;
+        .banner-title {
+          position: absolute;
+          top: 4px;
+          right: 4px;
+          transform: rotate(45deg);
+        }
     `}
 `;
 
@@ -30,16 +38,16 @@ const CardImage = styled.img`
     `}
 `;
 
-const Banner = styled.div`
+const Label = styled.div`
   ${({ theme }) => `
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 200px 200px 0;
-    border-color: transparent ${theme.colors.secondary} transparent transparent;
+      padding: ${theme.spacing.medium}; 
+      background-color: ${theme.colors.secondary};
+      border-radius: ${theme.borderRadius.medium};
+      max-width: 125px;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     `}
 `;
 
@@ -65,13 +73,19 @@ const Card: React.FC<CardProps> = ({
     <Section>
       <TextComponent variant={TextVariant.HEADER}>{title}</TextComponent>
       <TextComponent variant={TextVariant.BODY}>{description}</TextComponent>
+      {bannerTitle && (
+        <Label>
+          <TextComponent variant={TextVariant.SMALL}>
+            {bannerTitle}
+          </TextComponent>
+        </Label>
+      )}
     </Section>
   );
 
   const sectionTwo = (
     <Section>
       <CardImage alt="card-image" src={image}></CardImage>
-      {bannerTitle && <Banner>{bannerTitle}</Banner>}
     </Section>
   );
 

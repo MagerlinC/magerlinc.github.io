@@ -5,6 +5,7 @@ export enum TextVariant {
   PAGEHEADER,
   HEADER,
   BODY,
+  SMALL,
 }
 
 const getStyleForVariant = (variant: TextVariant, theme: DefaultTheme) => {
@@ -15,6 +16,8 @@ const getStyleForVariant = (variant: TextVariant, theme: DefaultTheme) => {
       return theme.typography.textVariants.header;
     case TextVariant.BODY:
       return theme.typography.textVariants.body;
+    case TextVariant.SMALL:
+      return theme.typography.textVariants.small;
   }
 };
 
@@ -25,16 +28,15 @@ type TextProps = {
   children: ReactNode;
   className?: string;
 };
-const TextComponent: React.FC<TextProps> = ({
-  variant,
-  children,
-  className,
-}) => {
+const TextComponent: React.FC<
+  TextProps & React.HTMLProps<HTMLParagraphElement>
+> = ({ variant, children, className, onAnimationEnd }) => {
   const theme = useTheme();
   return (
     <TextWrapper
       className={className}
       style={getStyleForVariant(variant, theme)}
+      onAnimationEnd={onAnimationEnd}
     >
       {children}
     </TextWrapper>

@@ -11,6 +11,7 @@ declare module "styled-components" {
       secondary: string;
       gradient: string;
       gradientAccent: string;
+      gradientAccentRotated: string;
       textPrimary: string;
       textSecondary: string;
       textTertiary: string;
@@ -35,6 +36,7 @@ declare module "styled-components" {
         pageHeader: Typography;
         header: Typography;
         body: Typography;
+        small: Typography;
       };
     };
   }

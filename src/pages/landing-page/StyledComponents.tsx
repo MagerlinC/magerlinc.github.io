@@ -59,6 +59,15 @@ export const LandingPageContents = styled.div`
     `}
 `;
 
+export const ProjectsList = styled.div`
+  ${({ theme }) => `
+        display: flex;
+        flex-direction: column;
+        gap: ${theme.spacing.xlarge};
+       
+    `}
+`;
+
 export const ProjectLine = styled.div`
   ${({ theme }) => `
     display: flex;

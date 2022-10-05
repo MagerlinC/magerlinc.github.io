@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card, { Orientation } from "../../components/Card";
 import HeroSwoop from "../../components/HeroSwoop";
 import TextComponent, { TextVariant } from "../../components/Text";
@@ -12,11 +12,14 @@ import {
   LandingPageContents,
   ProjectLine,
   HeroSection,
+  ProjectsList,
 } from "./StyledComponents";
 import AppHeader from "../../components/AppHeader";
 
 type LandingPageProps = {};
 const LandingPage: React.FC<LandingPageProps> = () => {
+  const [showProjects, setShowProjects] = useState<boolean>(false);
+
   return (
     <LandingPageWrapper>
       <LandingPageHeader>
@@ -27,6 +30,7 @@ const LandingPage: React.FC<LandingPageProps> = () => {
               Hi, I'm Mikkel!
             </TextComponent>
             <TextComponent
+              onAnimationEnd={() => setShowProjects(true)}
               className={"typewriter"}
               variant={TextVariant.HEADER}
             >
@@ -38,25 +42,30 @@ const LandingPage: React.FC<LandingPageProps> = () => {
         <HeroSwoop />
       </LandingPageHeader>
       <LandingPageContents>
-        <ProjectLine />
-        <Card
-          title={"XP 2022 Paper"}
-          description={"bla bla"}
-          orientation={Orientation.LEFT}
-          imageSource={XPPaper}
-        />
-        <Card
-          title={"XP 2022 Paper"}
-          description={"bla bla"}
-          orientation={Orientation.RIGHT}
-          imageSource={XPPaper}
-        />
-        <Card
-          title={"XP 2022 Paper"}
-          description={"bla bla"}
-          orientation={Orientation.LEFT}
-          imageSource={XPPaper}
-        />
+        {showProjects && <ProjectLine />}
+        {showProjects && (
+          <ProjectsList className={"fadeInDown"}>
+            <Card
+              title={"XP 2022 Paper"}
+              description={"bla bla"}
+              orientation={Orientation.LEFT}
+              imageSource={XPPaper}
+              bannerTitle={"XP2022 Best Paper Award"}
+            />
+            <Card
+              title={"XP 2022 Paper"}
+              description={"bla bla"}
+              orientation={Orientation.RIGHT}
+              imageSource={XPPaper}
+            />
+            <Card
+              title={"XP 2022 Paper"}
+              description={"bla bla"}
+              orientation={Orientation.LEFT}
+              imageSource={XPPaper}
+            />
+          </ProjectsList>
+        )}
       </LandingPageContents>
     </LandingPageWrapper>
   );

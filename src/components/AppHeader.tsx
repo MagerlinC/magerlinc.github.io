@@ -1,21 +1,29 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import EmailIcon from "../assets/email.png";
+import EmailIcon from "../assets/email-icon.svg";
+import LinkedInIcon from "../assets/linkedin-icon.svg";
+import GithubIcon from "../assets/github-icon.svg";
 
 type NavigationStyleProps = {};
 const NavigationWrapper = styled.div<NavigationStyleProps>`
   ${({ theme }) => `
-    flex: 1;
+    width: 100%;
     padding-top: ${theme.spacing.large};
     display: flex;
     flex-direction: row;
     gap: ${theme.spacing.large};
-    align-items: stretch;
+    margin-right: ${theme.spacing.large};
+    align-items: center;
+    justify-content: flex-end;
   `}
 `;
 
 const SocialIcon = styled.img`
-  width: 36px;
+  width: 42px;
+  &:hover {
+    opacity: 0.75;
+    transition: opacity 0.2s ease-in;
+  }
 `;
 
 type NavItem = {
@@ -23,19 +31,19 @@ type NavItem = {
   href: string;
 };
 
-type NavigationProps = {};
-const Navigation: React.FC<NavigationProps> = () => {
+type AppHeaderProps = {};
+const AppHeader: React.FC<AppHeaderProps> = () => {
   const navItems: NavItem[] = [
     {
       icon: <SocialIcon alt="email" src={EmailIcon} />,
       href: "mailto:mikkel_ac@hotmail.com",
     },
     {
-      icon: <SocialIcon alt="LinkedIn" src={EmailIcon} />,
+      icon: <SocialIcon alt="LinkedIn" src={LinkedInIcon} />,
       href: "https://www.linkedin.com/in/mikkel-agerlin-christensen-3a38ba166/",
     },
     {
-      icon: <SocialIcon alt="github" src={EmailIcon} />,
+      icon: <SocialIcon alt="github" src={GithubIcon} />,
       href: "https://github.com/magerlinc",
     },
   ];
@@ -43,9 +51,11 @@ const Navigation: React.FC<NavigationProps> = () => {
   return (
     <NavigationWrapper>
       {navItems.map((navItem) => (
-        <a href={navItem.href}>{navItem.icon}</a>
+        <a key={navItem.href} href={navItem.href}>
+          {navItem.icon}
+        </a>
       ))}
     </NavigationWrapper>
   );
 };
-export default Navigation;
+export default AppHeader;
