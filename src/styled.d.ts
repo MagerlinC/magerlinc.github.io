@@ -9,6 +9,8 @@ declare module "styled-components" {
     colors: {
       primary: string;
       secondary: string;
+      tertiary: string;
+      neutral: string;
       gradient: string;
       gradientAccent: string;
       gradientAccentRotated: string;

@@ -10,7 +10,8 @@ export const CardWrapper = styled.div<CardStyleProps>`
         flex-direction: row;
         border-radius: ${theme.borderRadius.large};
         padding: ${theme.spacing.large};
-        background: ${theme.colors.gradientAccentRotated};
+        color: ${theme.colors.textSecondary};
+        background: ${theme.colors.neutral};
         box-shadow: ${theme.boxshadows.medium};
     `}
 `;
@@ -35,6 +36,7 @@ const CardImage = styled.img`
   ${({ theme }) => `
         border-radius: ${theme.borderRadius.medium};
         width: 500px;
+
     `}
 `;
 
@@ -42,6 +44,7 @@ const Label = styled.div`
   ${({ theme }) => `
       padding: ${theme.spacing.medium}; 
       background-color: ${theme.colors.secondary};
+      color: ${theme.colors.textTertiary};
       border-radius: ${theme.borderRadius.medium};
       max-width: 125px;
       font-weight: bold;

@@ -4,6 +4,7 @@ import "./normalize.css";
 import "./scroll.css";
 import "./animations.css";
 import LandingPage from "./pages/landing-page/LandingPage";
+import { themeTsukimi } from "./theme_tsukimi";
 
 const PortfolioApplication = styled.div`
   ${({ theme }) => `
@@ -23,7 +24,7 @@ const PortfolioApplication = styled.div`
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themeTsukimi}>
       <PortfolioApplication>
         <LandingPage />
       </PortfolioApplication>

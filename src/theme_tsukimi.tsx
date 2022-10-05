@@ -1,22 +1,22 @@
 import { DefaultTheme } from "styled-components";
 
-const primaryColor = "#10101a";
-const primaryLight = "rgba(35,37,49, 0.5)";
-const secondaryColor = "#8000ff";
-const tertiaryTextColor = "hsl(333deg, 100%, 52%)";
+const primaryColor = "rgb(37, 42, 54)";
+const primaryLight = "rgb(211, 211, 205)";
+const secondaryColor = "rgb(205, 167, 135)";
+const tertiaryColor = "rgb(110, 79, 71)";
 
-export const theme: DefaultTheme = {
+export const themeTsukimi: DefaultTheme = {
   colors: {
     primary: primaryColor,
     secondary: secondaryColor,
-    tertiary: "#fff",
+    tertiary: tertiaryColor,
     neutral: "#fff",
     gradient: `linear-gradient(200deg, ${primaryLight},${primaryColor})`,
     gradientAccent: `linear-gradient(${primaryColor}, ${secondaryColor})`,
     gradientAccentRotated: `linear-gradient(20deg, ${primaryColor}, ${secondaryColor})`,
-    textPrimary: "#ffffff",
-    textSecondary: "#000000",
-    textTertiary: tertiaryTextColor,
+    textPrimary: secondaryColor,
+    textSecondary: tertiaryColor,
+    textTertiary: "#fff",
   },
   spacing: {
     small: "4px",
