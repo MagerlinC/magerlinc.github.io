@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "Chalk";
+  src: url(assets/chalk.ttf);
+}
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

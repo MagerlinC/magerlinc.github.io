@@ -4,6 +4,7 @@ import HeroSwoop from "../../components/HeroSwoop";
 import TextComponent, { TextVariant } from "../../components/Text";
 import XPPaper from "../../assets/xppaper.png";
 import TechReport from "../../assets/techreport.png";
+import ThesisGraph from "../../assets/thesis-graph.png";
 import NPMLogo from "../../assets/npm.png";
 import Headshot from "../../assets/headshot.png";
 import {
@@ -20,7 +21,7 @@ import AppHeader from "../../components/AppHeader";
 
 type LandingPageProps = {};
 const LandingPage: React.FC<LandingPageProps> = () => {
-  const [showProjects, setShowProjects] = useState<boolean>(false);
+  const [showSubAnimations, setShowSubAnimations] = useState<boolean>(false);
   const useParallaxEffect = false;
 
   return (
@@ -30,14 +31,14 @@ const LandingPage: React.FC<LandingPageProps> = () => {
           useParallaxEffect ? "parallax__layer parallax__layer--back" : ""
         }
       >
-        <AppHeader />
+        <AppHeader showAnimations={showSubAnimations} />
         <HeroSection>
           <LandingPageText>
             <TextComponent variant={TextVariant.PAGEHEADER}>
               Hi, I'm Mikkel!
             </TextComponent>
             <TextComponent
-              onAnimationEnd={() => setShowProjects(true)}
+              onAnimationEnd={() => setShowSubAnimations(true)}
               className={"typewriter"}
               variant={TextVariant.HEADER}
             >
@@ -53,13 +54,13 @@ const LandingPage: React.FC<LandingPageProps> = () => {
           useParallaxEffect ? "parallax__layer parallax__layer--base" : ""
         }
       >
-        {showProjects && <ProjectLine />}
-        {showProjects && (
+        {showSubAnimations && <ProjectLine className={"fadeIn"} />}
+        {showSubAnimations && (
           <ProjectsList className={"fadeInDown"}>
             <Card
               title={"Research Paper on Psychological Safety Tools"}
               description={
-                "In 2022, I published a paper and gave a talk at the International Conference on Agile Software Development, creating and experimenting with tangible tools for agile software teams to work with psychological safety as part of their practice. It won the XP2022 best research paper award."
+                "Ever since Google found psychological safety to be the #1 predictor of software team efficiency, I've been on a quest to help Agile software teams work with psychological safety as part of their practice. In 2022, I designed a toolbox of tools for this purpose, and implemented it in four software teams. This work was published at the International Conference on Agile Software Development 2022, where it won the best research paper award."
               }
               orientation={Orientation.LEFT}
               imageSource={XPPaper}
@@ -82,14 +83,39 @@ const LandingPage: React.FC<LandingPageProps> = () => {
             <Card
               title={"Empirical Research on Improving Psychological Safety"}
               description={
-                "As a pre-study to the XP2022 paper, I set out to explore how Psychological Safety could be measured in agile software teams, and if improvements could be made simply be spreading awareness of the concept. I observed team meetings, held and intervention workshop with the teams, and measured again shortly after, to see the effects."
+                "As a pre-study to the XP2022 paper, I set out to explore how Psychological Safety could be measured in agile software teams, and if improvements could be made simply be spreading awareness of the concept. I followed two software teams, observed team meetings, held and intervention workshop with the teams, and measured again shortly after, to see the effects."
               }
               orientation={Orientation.RIGHT}
               imageSource={TechReport}
+              labels={[
+                "Research",
+                "Psychological Safety",
+                "Agile Software Teams",
+              ]}
               link={
                 <TextComponent variant={TextVariant.BODY}>
-                  <span>You can download the technical report here </span>
-                  <a href="techreport.pdf">here</a>
+                  <span>You can download the technical report </span>
+                  <a href="techreport.pdf">here</a>.
+                </TextComponent>
+              }
+            />
+            <Card
+              title={
+                "Bachelor Thesis: Using Data Visualizations in Agile Planning"
+              }
+              description={`
+                An exploration of how agile planning can be supported by interactive data visualizations. Agile planning is difficult, in part due to the challenges of both producing, analyzing and interpreting relevant data. Current visualizations make trade-offs between richness of data and simplicity, commonly tending towards simplicity and providing lean rationale. We have in this thesis explored how data visualizations for planning purposes can be enrichened on-demand through the use of interactive data visualizations. This project resulted in the implementation of a similar visualization in the project management application Forecast.
+              `}
+              orientation={Orientation.LEFT}
+              imageSource={ThesisGraph}
+              labels={["Research", "Agile Planning", "Data Visualization"]}
+              link={
+                <TextComponent variant={TextVariant.BODY}>
+                  <span>You can download the thesis </span>
+                  <a href="bachelor.pdf" download>
+                    here
+                  </a>
+                  .
                 </TextComponent>
               }
             />
@@ -107,7 +133,7 @@ const LandingPage: React.FC<LandingPageProps> = () => {
                   <a href="https://www.npmjs.com/package/react-virtualized-dnd">
                     here
                   </a>
-                  <span>, and play with a live example </span>
+                  <span>, and try a live example </span>
                   <a href="https://forecast-it.github.io/react-virtualized-dnd/">
                     here
                   </a>

@@ -34,6 +34,7 @@ declare module "styled-components" {
     };
     typography: {
       fontFamilyMono: string;
+      fontFamilyHandwritten: string;
       textVariants: {
         pageHeader: Typography;
         header: Typography;

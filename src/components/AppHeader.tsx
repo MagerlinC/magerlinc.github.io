@@ -4,6 +4,7 @@ import EmailIcon from "../assets/email-icon.svg";
 import LinkedInIcon from "../assets/linkedin-icon.svg";
 import GithubIcon from "../assets/github-icon.svg";
 import CVIcon from "../assets/cv-icon.svg";
+import ChalkArrow from "../assets/chalk-arrow.png";
 
 type NavigationStyleProps = {};
 const NavigationWrapper = styled.div<NavigationStyleProps>`
@@ -22,9 +23,22 @@ const NavigationWrapper = styled.div<NavigationStyleProps>`
 const SocialIcon = styled.img`
   width: 4em;
   &:hover {
-    opacity: 0.75;
+    opacity: 0.8;
     transition: opacity 0.2s ease-in;
   }
+`;
+
+const HandWriting = styled.div`
+  ${({ theme }) => `
+    opacity: 0.8;
+    color: ${theme.colors.textTertiary};
+    font-family: Chalk;
+    img {
+      padding-left: 0.5em;
+      transform: translateY(3px);
+      width: 2em;
+    }
+  `}
 `;
 
 type NavItem = {
@@ -33,8 +47,10 @@ type NavItem = {
   download?: boolean;
 };
 
-type AppHeaderProps = {};
-const AppHeader: React.FC<AppHeaderProps> = () => {
+type AppHeaderProps = {
+  showAnimations: boolean;
+};
+const AppHeader: React.FC<AppHeaderProps> = ({ showAnimations }) => {
   const navItems: NavItem[] = [
     {
       icon: <SocialIcon alt="Download CV" src={CVIcon} />,
@@ -57,6 +73,13 @@ const AppHeader: React.FC<AppHeaderProps> = () => {
 
   return (
     <NavigationWrapper>
+      {showAnimations && (
+        <HandWriting className={"fadeIn"}>
+          <span>You can find my technical experience here</span>
+          <img alt="chalk-arrow" src={ChalkArrow} />
+        </HandWriting>
+      )}
+
       {navItems.map((navItem) => (
         <a download={!!navItem.download} key={navItem.href} href={navItem.href}>
           {navItem.icon}

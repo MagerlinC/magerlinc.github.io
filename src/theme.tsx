@@ -34,6 +34,7 @@ export const theme: DefaultTheme = {
   },
   typography: {
     fontFamilyMono: "Roboto Mono",
+    fontFamilyHandwritten: "Chalk",
     textVariants: {
       pageHeader: {
         fontWeight: "bold",
