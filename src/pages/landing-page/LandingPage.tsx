@@ -120,7 +120,7 @@ const LandingPage: React.FC<LandingPageProps> = () => {
               }
             />
             <Card
-              title={"Open Source DnD Framework"}
+              title={"Open Source Drag-and-Drop Framework"}
               description={
                 "During my time at Forecast, we had a lot of trouble combining virtualization techniques - which was needed for frontend performance - and drag-and-drop libraries. At the time, these two were not compatible, and so we set out to author a library that could handle both. This library is still in production use to this day, and solves this combination of challenges in an efficient and simple manner."
               }
