@@ -24,7 +24,7 @@ export const CardWrapper = styled.div<CardStyleProps>`
           display: flex;
           flex-direction: row;
         }
-        @media (min-width: 425px) {
+        @media (max-width: 426px) {
           .card-contents-wrapper {
             flex-direction: column;
             align-items: center;
@@ -66,7 +66,7 @@ const CardImage = styled.img`
   ${({ theme }) => `
         border-radius: ${theme.borderRadius.medium};
         width: 36vw;
-        margin: 2vw;
+        margin: 0 2vw;
     `}
 `;
 
