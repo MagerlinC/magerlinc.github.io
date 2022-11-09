@@ -26,10 +26,22 @@ export const LandingPageWrapper = styled.div`
 
 export const HeroSection = styled.div`
   ${({ theme }) => `
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: ${theme.spacing.medium};
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: ${theme.spacing.medium};
+    @media (max-width: 900px) {
+      margin-bottom: 24px;
+    }
+    @media (max-width: 700px) {
+      img {
+        display: none;
+      }
+      margin-bottom: 36px;
+    }
+    @media (max-width: 500px) {
+      margin-bottom: 74px;
+    }
   `}
 `;
 

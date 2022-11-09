@@ -1,9 +1,15 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 import TextComponent, { TextVariant } from "./Text";
-type CardStyleProps = {};
+export enum Orientation {
+  LEFT,
+  RIGHT,
+}
+type CardStyleProps = {
+  orientation: Orientation;
+};
 export const CardWrapper = styled.div<CardStyleProps>`
-  ${({ theme }) => `
+  ${({ theme, orientation }) => `
         position: relative;
         display: flex;
         max-width: 70vw;
@@ -17,7 +23,16 @@ export const CardWrapper = styled.div<CardStyleProps>`
         .card-contents-wrapper {
           display: flex;
           flex-direction: row;
-          gap; ${theme.spacing.large};
+        }
+        @media (min-width: 425px) {
+          .card-contents-wrapper {
+            flex-direction: column;
+            align-items: center;
+            ${
+              orientation === Orientation.LEFT &&
+              `flex-direction: column-reverse`
+            };
+          }
         }
     `}
 `;
@@ -70,10 +85,6 @@ const Label = styled.div`
     `}
 `;
 
-export enum Orientation {
-  LEFT,
-  RIGHT,
-}
 type CardProps = {
   title: string;
   description: string;
@@ -113,7 +124,7 @@ const Card: React.FC<CardProps> = ({
   );
 
   return (
-    <CardWrapper>
+    <CardWrapper orientation={orientation}>
       <TextComponent variant={TextVariant.HEADER}>{title}</TextComponent>
       <div className={"card-contents-wrapper"}>
         {orientation === Orientation.LEFT ? (
